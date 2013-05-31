@@ -17,7 +17,7 @@ public class Graph {
 	public void addEdge(int v, int w)
 	{
 		_nodeList[v].adj.add(w);
-		_nodeList[w].adj.add(v);
+		//_nodeList[w].adj.add(v);
 	}
 	
 	public boolean hasEdge(int v, int w)
@@ -56,6 +56,23 @@ public class Graph {
 					stack.push(connectedNode);
 			}
 		}
+	}
+	
+	
+	public void DepthFirstSearch_Recursive(int node, IGraphVisitor visitor, int mark[])
+	{
+		if (mark[node] > 0)
+			return;
+		visitor.Visit(node);
+		mark[node] = 1;
+		for(int ii = 0; ii < _nodeList[node].adj.size(); ii++)
+		{
+			int connectedNode = _nodeList[node].adj.get(ii);
+			if (mark[connectedNode] == 0)
+				DepthFirstSearch_Recursive(connectedNode, visitor, mark);
+		}
+		visitor.EndVisit(node);
+		mark[node] = 2;
 	}
 
 	public void BreadthFirstSearch(int s, IGraphVisitor vis)

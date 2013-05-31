@@ -13,5 +13,7 @@ public interface IGraphVisitor {
 	public void Visit(int node);
 	
 	public void EndVisit(int node);
+	
+	public void Output();
 
 }

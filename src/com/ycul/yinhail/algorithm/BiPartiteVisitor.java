@@ -60,5 +60,10 @@ public class BiPartiteVisitor implements IGraphVisitor {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void Output() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
